@@ -1,6 +1,7 @@
 package com.rapidtech.restapi.entity;
 
 import com.rapidtech.restapi.model.ProductModel;
+import com.rapidtech.restapi.model.PurchaseOrderDetailModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,18 +26,26 @@ public class PurchaseOrderEntity {
     @Column(name = "po_code", length = 20, nullable = false)
     private String poCode;
 
-    @Column(name = "customer_id", nullable = false)
+    @Column(name = "customer_id", insertable=false, updatable=false)
     private Integer customerId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private CustomerEntity customer;
 
     @Column(name = "employee_id", nullable = false)
     private Integer employeeId;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id", insertable = false, updatable = false)
+    private EmployeeEntity employee;
+
     @Column(name = "shipper_id", nullable = false)
     private Integer shipperId;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shipper_id", insertable = false, updatable = false)
+    private ShipperEntity shipper;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "po_date", nullable = false)
@@ -44,4 +53,8 @@ public class PurchaseOrderEntity {
 
     @Column(name = "total_amount", nullable = false)
     private Double totalAmount;
+
+    public PurchaseOrderEntity(PurchaseOrderDetailModel model){
+        BeanUtils.copyProperties(model,this);
+    }
 }

@@ -1,10 +1,14 @@
 package com.rapidtech.restapi.entity;
 
+import com.rapidtech.restapi.model.ShipperModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,4 +27,10 @@ public class ShipperEntity {
     private String shipperName;
     @Column(name = "phone", length = 20)
     private String phone;
+    @OneToMany(mappedBy = "shipper")
+    private Set<PurchaseOrderEntity> purchaseOrderEntities = new HashSet<>();
+
+    public ShipperEntity(ShipperModel model) {
+        BeanUtils.copyProperties(model,this);
+    }
 }

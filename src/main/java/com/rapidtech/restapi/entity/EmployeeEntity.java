@@ -1,11 +1,16 @@
 package com.rapidtech.restapi.entity;
 
+import com.rapidtech.restapi.model.EmployeeModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
+import java.beans.Beans;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -46,4 +51,10 @@ public class EmployeeEntity {
 
     @Column(name = "notes", length = 250)
     private String notes;
+    @OneToMany(mappedBy = "employee")
+    private Set<PurchaseOrderEntity> purchaseOrderEntities = new HashSet<>();
+
+    public EmployeeEntity(EmployeeModel model) {
+        BeanUtils.copyProperties(model,this);
+    }
 }

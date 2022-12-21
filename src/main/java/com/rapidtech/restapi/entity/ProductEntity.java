@@ -38,7 +38,7 @@ public class ProductEntity {
     private CategoryEntity category;
 
     @Column(name = "supplier_id", nullable = false)
-    private Integer supplierId;
+    private Long supplierId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
