@@ -34,7 +34,7 @@ public class ShipperServiceImpl implements ShipperService {
     }
 
     @Override
-    public Optional<ShipperModel> getById(Integer id) {
+    public Optional<ShipperModel> getById(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -64,7 +64,7 @@ public class ShipperServiceImpl implements ShipperService {
     }
 
     @Override
-    public Optional<ShipperModel> update(Integer id, ShipperModel model) {
+    public Optional<ShipperModel> update(Long id, ShipperModel model) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -86,7 +86,7 @@ public class ShipperServiceImpl implements ShipperService {
     }
 
     @Override
-    public Optional<ShipperModel> delete(Integer id) {
+    public Optional<ShipperModel> delete(Long id) {
         if(id == 0) {
             return Optional.empty();
         }

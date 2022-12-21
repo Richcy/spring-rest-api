@@ -35,7 +35,7 @@ public class SupplierController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getById(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> getById(@PathVariable("id") Long id){
         Optional<SupplierModel> result = service.getById(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -51,7 +51,7 @@ public class SupplierController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Object> updateSupplier(@PathVariable("id") Integer id, @RequestBody SupplierModel request){
+    public ResponseEntity<Object> updateSupplier(@PathVariable("id") Long id, @RequestBody SupplierModel request){
         Optional<SupplierModel> result = service.update(id, request);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -59,7 +59,7 @@ public class SupplierController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id){
         Optional<SupplierModel> result = service.delete(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)

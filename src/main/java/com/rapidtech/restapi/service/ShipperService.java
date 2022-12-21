@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface ShipperService {
     List<ShipperModel> getAll();
-    Optional<ShipperModel> getById(Integer id);
+    Optional<ShipperModel> getById(Long id);
     Optional<ShipperModel> save(ShipperModel model);
-    Optional<ShipperModel> update(Integer id, ShipperModel model);
-    Optional<ShipperModel> delete(Integer id);
+    Optional<ShipperModel> update(Long id, ShipperModel model);
+    Optional<ShipperModel> delete(Long id);
 }

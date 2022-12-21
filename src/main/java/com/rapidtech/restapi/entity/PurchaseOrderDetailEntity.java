@@ -4,8 +4,6 @@ import com.rapidtech.restapi.model.PurchaseOrderDetailModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,18 +17,19 @@ public class PurchaseOrderDetailEntity {
     @Id
     @TableGenerator(name = "po_detail_id_generator", table = "sequence_tab",
             pkColumnName = "gen_name", valueColumnName = "gen_value",
-            pkColumnValue="purchase_order_detail_id", initialValue=0, allocationSize=0)
+            pkColumnValue="po_detail_id", initialValue=0, allocationSize=0)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "po_detail_id_generator")
-    private Integer id;
+    private Long id;
 
     @Column(name = "po_id")
-    private Integer poId;
+    private Long poId;
+
+    @ManyToOne
+    @JoinColumn(name = "po_id", insertable = false, updatable = false)
+    private PurchaseOrderEntity purchaseOrder;
 
     @Column(name = "product_id", nullable = false)
-    private Integer productId;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id", insertable = false, updatable = false)
-    private ProductEntity product;
+    private Long productId;
 
     @Column(name = "quantity", nullable = false)
     private Double quantity;
@@ -41,7 +40,14 @@ public class PurchaseOrderDetailEntity {
     @Column(name = "sub_amount", nullable = false)
     private Double subAmount;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id", insertable = false, updatable = false)
+    private ProductEntity product;
+
     public PurchaseOrderDetailEntity(PurchaseOrderDetailModel model) {
-        BeanUtils.copyProperties(model,this);
+        this.productId = model.getProductId();
+        this.quantity = model.getQuantity();
+        this.price = model.getPrice();
+        this.subAmount = model.getPrice() * model.getQuantity();
     }
 }

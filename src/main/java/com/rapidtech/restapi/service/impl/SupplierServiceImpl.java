@@ -38,7 +38,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Optional<SupplierModel> getById(Integer id) {
+    public Optional<SupplierModel> getById(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -68,7 +68,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Optional<SupplierModel> update(Integer id, SupplierModel model) {
+    public Optional<SupplierModel> update(Long id, SupplierModel model) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -90,7 +90,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Optional<SupplierModel> delete(Integer id) {
+    public Optional<SupplierModel> delete(Long id) {
         if(id == 0) {
             return Optional.empty();
         }

@@ -9,8 +9,8 @@ import java.util.Optional;
 
 public interface SupplierService {
     List<SupplierModel> getAll();
-    Optional<SupplierModel> getById(Integer id);
+    Optional<SupplierModel> getById(Long id);
     Optional<SupplierModel> save(SupplierModel model);
-    Optional<SupplierModel> update(Integer id, SupplierModel model);
-    Optional<SupplierModel> delete(Integer id);
+    Optional<SupplierModel> update(Long id, SupplierModel model);
+    Optional<SupplierModel> delete(Long id);
 }

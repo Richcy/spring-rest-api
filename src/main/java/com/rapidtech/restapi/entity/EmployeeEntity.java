@@ -21,7 +21,7 @@ public class EmployeeEntity {
     @Id
     @TableGenerator(name = "employee_id_generator", table = "sequence_tab",
             pkColumnName = "gen_name", valueColumnName = "gen_value",
-            pkColumnValue="customer_id", initialValue=0, allocationSize=0)
+            pkColumnValue="employee_id", initialValue=0, allocationSize=0)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "employee_id_generator")
     private Long id;
 

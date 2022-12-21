@@ -33,7 +33,7 @@ public class ShipperController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getById(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> getById(@PathVariable("id") Long id){
         Optional<ShipperModel> result = service.getById(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -49,7 +49,7 @@ public class ShipperController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Object> updateShipper(@PathVariable("id") Integer id, @RequestBody ShipperModel request){
+    public ResponseEntity<Object> updateShipper(@PathVariable("id") Long id, @RequestBody ShipperModel request){
         Optional<ShipperModel> result = service.update(id, request);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -57,7 +57,7 @@ public class ShipperController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id){
         Optional<ShipperModel> result = service.delete(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)

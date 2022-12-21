@@ -9,23 +9,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchaseOrderModel {
-    private int id;
+public class PurchaseOrderModel implements Serializable {
+    private Long id;
     private String poCode;
-    private Integer customerId;
-    private Integer employeeId;
-    private Integer shipperId;
+    private Long customerId;
+    private Long employeeId;
+    private Long shipperId;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date poDate;
     private Double totalAmount;
+    private List<PurchaseOrderDetailModel> details;
 
-    public PurchaseOrderModel(PurchaseOrderEntity entity) {
-        BeanUtils.copyProperties(entity,this);
-    }
 }
