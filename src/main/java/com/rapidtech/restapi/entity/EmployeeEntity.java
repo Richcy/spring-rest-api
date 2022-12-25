@@ -52,7 +52,7 @@ public class EmployeeEntity {
     @Column(name = "notes", length = 250)
     private String notes;
     @OneToMany(mappedBy = "employee")
-    private Set<PurchaseOrderEntity> purchaseOrderEntities = new HashSet<>();
+    private Set<PurchaseOrderEntity> purchaseOrders = new HashSet<>();
 
     public EmployeeEntity(EmployeeModel model) {
         BeanUtils.copyProperties(model,this);

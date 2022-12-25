@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface ProductService {
     List<ProductModel> getAll();
-    Optional<ProductModel> getById(Integer id);
+    Optional<ProductModel> getById(Long id);
     Optional<ProductModel> save(ProductModel model);
-    Optional<ProductModel> update(Integer id, ProductModel model);
-    Optional<ProductModel> delete(Integer id);
+    Optional<ProductModel> update(Long id, ProductModel model);
+    Optional<ProductModel> delete(Long id);
 }

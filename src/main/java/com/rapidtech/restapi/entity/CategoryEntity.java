@@ -21,7 +21,7 @@ public class CategoryEntity {
             pkColumnName = "gen_name", valueColumnName = "gen_value",
             pkColumnValue="category_id", initialValue=0, allocationSize=0)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "category_id_generator")
-    private int id;
+    private Long id;
 
     @Column(name = "category_code", length = 20, nullable = false)
     private String code;

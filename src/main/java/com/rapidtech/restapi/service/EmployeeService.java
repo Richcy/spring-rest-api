@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface EmployeeService {
     List<EmployeeModel> getAll();
-    Optional<EmployeeModel> getById(Integer id);
+    Optional<EmployeeModel> getById(Long id);
     Optional<EmployeeModel> save(EmployeeModel model);
-    Optional<EmployeeModel> update(Integer id, EmployeeModel model);
-    Optional<EmployeeModel> delete(Integer id);
+    Optional<EmployeeModel> update(Long id, EmployeeModel model);
+    Optional<EmployeeModel> delete(Long id);
 }

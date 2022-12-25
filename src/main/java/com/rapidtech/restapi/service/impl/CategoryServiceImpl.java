@@ -30,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<CategoryModel> getById(Integer id) {
+    public Optional<CategoryModel> getById(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<CategoryModel> update(Integer id, CategoryModel model) {
+    public Optional<CategoryModel> update(Long id, CategoryModel model) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -76,7 +76,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<CategoryModel> delete(Integer id) {
+    public Optional<CategoryModel> delete(Long id) {
         if(id == 0) {
             return Optional.empty();
         }

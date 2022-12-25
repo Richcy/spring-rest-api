@@ -8,6 +8,8 @@ import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -45,6 +47,8 @@ public class CustomerEntity {
 
     @Column(name = "postal_code", length = 10)
     private String postalCode;
+    @OneToMany(mappedBy = "customer")
+    private Set<PurchaseOrderEntity> purchaseOrders = new HashSet<>();
 
     public CustomerEntity(CustomerModel model) {
         BeanUtils.copyProperties(model, this);

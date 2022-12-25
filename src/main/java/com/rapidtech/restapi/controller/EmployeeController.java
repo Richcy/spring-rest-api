@@ -31,7 +31,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getById(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> getById(@PathVariable("id") Long id){
         Optional<EmployeeModel> result = service.getById(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -47,7 +47,7 @@ public class EmployeeController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Object> updateEmployee(@PathVariable("id") Integer id, @RequestBody EmployeeModel request){
+    public ResponseEntity<Object> updateEmployee(@PathVariable("id") Long id, @RequestBody EmployeeModel request){
         Optional<EmployeeModel> result = service.update(id, request);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)
@@ -55,7 +55,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id){
         Optional<EmployeeModel> result = service.delete(id);
         return ResponseEntity.ok().body(
                 new ResponseModel(200,"SUCCESS", result)

@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<ProductModel> getById(Integer id) {
+    public Optional<ProductModel> getById(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<ProductModel> update(Integer id, ProductModel model) {
+    public Optional<ProductModel> update(Long id, ProductModel model) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -82,7 +82,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<ProductModel> delete(Integer id) {
+    public Optional<ProductModel> delete(Long id) {
         if(id == 0) {
             return Optional.empty();
         }

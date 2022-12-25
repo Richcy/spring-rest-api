@@ -28,7 +28,7 @@ public class ShipperEntity {
     @Column(name = "phone", length = 20)
     private String phone;
     @OneToMany(mappedBy = "shipper")
-    private Set<PurchaseOrderEntity> purchaseOrderEntities = new HashSet<>();
+    private Set<PurchaseOrderEntity> purchaseOrders = new HashSet<>();
 
     public ShipperEntity(ShipperModel model) {
         BeanUtils.copyProperties(model,this);

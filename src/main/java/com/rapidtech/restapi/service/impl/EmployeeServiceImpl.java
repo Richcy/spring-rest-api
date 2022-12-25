@@ -34,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional<EmployeeModel> getById(Integer id) {
+    public Optional<EmployeeModel> getById(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -58,7 +58,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional<EmployeeModel> update(Integer id, EmployeeModel model) {
+    public Optional<EmployeeModel> update(Long id, EmployeeModel model) {
         if(id == 0) {
             return Optional.empty();
         }
@@ -80,7 +80,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional<EmployeeModel> delete(Integer id) {
+    public Optional<EmployeeModel> delete(Long id) {
         if(id == 0) {
             return Optional.empty();
         }
